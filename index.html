@@ -21,7 +21,10 @@
               return s.replace(/~and~/g, '&');
             })
             .join('?');
-          window.history.replaceState(null, '', decoded + l.hash);
+          // Preserve the repo base path (e.g. "/photography-web/") from l.pathname.
+          // Example: /photography-web/?/albums -> /photography-web/albums
+          var basePath = l.pathname.replace(/\/$/, '');
+          window.history.replaceState(null, '', basePath + decoded + l.hash);
         }
       })(window.location);
     </script>
