@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Lightbox } from './Lightbox';
 import type { AlbumImage } from '../data/albums';
+import { publicUrl } from '../utils/publicUrl';
 interface PhotoGalleryProps {
   images: AlbumImage[];
 }
@@ -36,7 +37,7 @@ export function PhotoGallery({
       }} className="break-inside-avoid">
             <div className="relative group overflow-hidden rounded-sm cursor-zoom-in" onClick={() => openLightbox(index)}>
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 z-10" />
-              <img src={image.src} alt={image.alt} className="w-full h-auto object-contain transform transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
+              <img src={publicUrl(image.src)} alt={image.alt} className="w-full h-auto object-contain transform transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
             </div>
             {image.caption ? <p className="mt-3 text-sm text-stone-500 leading-relaxed">
                 {image.caption}

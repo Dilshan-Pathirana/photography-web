@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
+import { publicUrl } from '../utils/publicUrl';
 export function AboutPage() {
   return <motion.div initial={{
     opacity: 0
@@ -56,7 +57,7 @@ export function AboutPage() {
           delay: 0.2
         }} className="relative">
             <div className="absolute inset-0 bg-gold/10 translate-x-4 translate-y-4 rounded-lg" />
-            <img src="/albums/album-1/2.jpg" alt="Featured album image" className="relative z-10 w-full h-[600px] object-cover rounded-lg shadow-lg grayscale hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async" />
+            <img src={publicUrl('/albums/album-1/2.jpg')} alt="Featured album image" className="relative z-10 w-full h-[600px] object-cover rounded-lg shadow-lg grayscale hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async" />
           </motion.div>
         </div>
 

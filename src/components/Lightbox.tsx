@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { AlbumImage } from '../data/albums';
+import { publicUrl } from '../utils/publicUrl';
 interface LightboxProps {
   images: AlbumImage[];
   currentIndex: number;
@@ -93,7 +94,7 @@ export function Lightbox({
           scale: 0.95
         }} transition={{
           duration: 0.2
-        }} src={images[currentIndex].src} alt={images[currentIndex].alt} className="max-w-full max-h-full object-contain shadow-2xl" loading="eager" decoding="async" drag="x" dragConstraints={{
+        }} src={publicUrl(images[currentIndex].src)} alt={images[currentIndex].alt} className="max-w-full max-h-full object-contain shadow-2xl" loading="eager" decoding="async" drag="x" dragConstraints={{
           left: 0,
           right: 0
         }} dragElastic={0.2} onDragEnd={(e, {

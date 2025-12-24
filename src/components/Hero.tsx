@@ -1,7 +1,7 @@
-import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from './ui/Button';
 import { ChevronDown } from 'lucide-react';
+import { publicUrl } from '../utils/publicUrl';
 export function Hero() {
   const {
     scrollY
@@ -13,8 +13,7 @@ export function Hero() {
       <motion.div style={{
       y
     }} className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/40 z-10" />
-        <img src="/albums/album-10/5.jpg" alt="Featured album cover" className="w-full h-full object-cover" loading="eager" decoding="async" />
+        <img src={publicUrl('/albums/album-10/5.jpg')} alt="Featured album cover" className="w-full h-full object-cover" loading="eager" decoding="async" />
       </motion.div>
 
       {/* Content */}

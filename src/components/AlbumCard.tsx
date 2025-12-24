@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Album } from '../data/albums';
 import { ArrowRight } from 'lucide-react';
+import { publicUrl } from '../utils/publicUrl';
 interface AlbumCardProps {
   album: Album;
 }
@@ -12,7 +13,7 @@ export function AlbumCard({
   return <Link to={`/albums/${album.id}`} className="group block h-full">
       <div className="relative overflow-hidden rounded-lg aspect-[4/5] mb-4">
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 z-10" />
-        <motion.img src={album.coverImage} alt={album.coverAlt ? album.coverAlt : album.title} className="w-full h-full object-cover" whileHover={{
+        <motion.img src={publicUrl(album.coverImage)} alt={album.coverAlt ? album.coverAlt : album.title} className="w-full h-full object-cover" whileHover={{
         scale: 1.05
       }} transition={{
         duration: 0.6,
