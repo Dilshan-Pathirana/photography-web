@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 // Components
@@ -32,7 +32,7 @@ function AnimatedRoutes() {
     </AnimatePresence>;
 }
 export function App() {
-  return <Router>
+  return <Router basename={import.meta.env.BASE_URL}>
       <div className="flex flex-col min-h-screen bg-cream font-sans text-charcoal selection:bg-gold/30">
         <ScrollToTop />
         <Navigation />
