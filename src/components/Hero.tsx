@@ -1,8 +1,21 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { Button } from './ui/Button';
 import { ChevronDown } from 'lucide-react';
 import { publicUrl } from '../utils/publicUrl';
 export function Hero() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 639px)');
+    const onChange = () => setIsMobile(mediaQuery.matches);
+    onChange();
+    if ('addEventListener' in mediaQuery) {
+      mediaQuery.addEventListener('change', onChange);
+      return () => mediaQuery.removeEventListener('change', onChange);
+    }
+    mediaQuery.addListener(onChange);
+    return () => mediaQuery.removeListener(onChange);
+  }, []);
   const {
     scrollY
   } = useScroll();
@@ -11,9 +24,9 @@ export function Hero() {
   return <section className="relative h-screen min-h-[100svh] w-full overflow-hidden flex items-center justify-center">
       {/* Parallax Background */}
       <motion.div style={{
-      y
-    }} className="absolute -inset-32 z-0">
-        <img src={publicUrl('/albums/album-10/5.jpg')} alt="Featured album cover" className="w-full h-full object-cover object-[center_35%] sm:object-center" loading="eager" decoding="async" />
+      y: isMobile ? 0 : y
+    }} className="absolute inset-0 sm:-inset-32 z-0 bg-charcoal">
+        <img src={publicUrl('/albums/album-10/5.jpg')} alt="Featured album cover" className="w-full h-full object-contain sm:object-cover object-center" loading="eager" decoding="async" />
       </motion.div>
 
       {/* Content */}
