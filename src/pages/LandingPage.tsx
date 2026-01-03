@@ -66,7 +66,7 @@ export function LandingPage() {
               <img
                 src={publicUrl('/albums/album-2/1.jpg')}
                 alt="Featured work preview"
-                className="relative z-10 w-full h-[600px] object-cover rounded-lg shadow-xl"
+                className="relative z-10 w-full h-[320px] sm:h-[420px] lg:h-[600px] object-cover rounded-lg shadow-xl"
                 loading="lazy"
                 decoding="async"
               />
@@ -89,7 +89,7 @@ export function LandingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-auto md:h-[600px]">
             <motion.div
-              className="md:col-span-2 h-[420px] md:h-full relative overflow-hidden group"
+              className="md:col-span-2 h-[280px] sm:h-[360px] md:h-full relative overflow-hidden group"
               whileHover={{ scale: 0.98 }}
               transition={{ duration: 0.4 }}
             >
@@ -102,9 +102,9 @@ export function LandingPage() {
               />
             </motion.div>
 
-            <div className="flex flex-col gap-4 h-[420px] md:h-full">
+            <div className="flex flex-col gap-4 h-auto md:h-full">
               <motion.div
-                className="flex-1 relative overflow-hidden group"
+                className="relative overflow-hidden group h-[200px] sm:h-[240px] md:h-auto md:flex-1"
                 whileHover={{ scale: 0.98 }}
                 transition={{ duration: 0.4 }}
               >
@@ -118,7 +118,7 @@ export function LandingPage() {
               </motion.div>
 
               <motion.div
-                className="flex-1 relative overflow-hidden group"
+                className="relative overflow-hidden group h-[200px] sm:h-[240px] md:h-auto md:flex-1"
                 whileHover={{ scale: 0.98 }}
                 transition={{ duration: 0.4 }}
               >
