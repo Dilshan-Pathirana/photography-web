@@ -62,7 +62,7 @@ export function LandingPage() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="absolute -inset-4 border border-gold/30 rounded-lg z-0 translate-x-4 translate-y-4" />
+              <div className="absolute inset-0 bg-gold/10 translate-x-4 translate-y-4 rounded-lg" />
               <img
                 src={publicUrl('/albums/album-2/1.jpg')}
                 alt="Featured work preview"
